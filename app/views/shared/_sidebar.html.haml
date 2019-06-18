@@ -1,0 +1,12 @@
+%div.sidebar
+  %div.sidebar-top
+  %div.menu
+    -if user_signed_in?
+      .menu__user
+        .menu__user--avatar
+          = image_tag current_user.avatar, class: 'avatar'
+        .menu__user--user_name
+          = link_to current_user.name, user_path(current_user.id), class: "show_link"
+      .menu__form_link
+        = link_to "MEETしよう！", new_restaurant_path, class: 'menu__form_link__btn'
+    = render partial: '/shared/calendar'

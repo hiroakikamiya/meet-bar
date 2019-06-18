@@ -1,0 +1,23 @@
+.cancel{
+  width: calc(100% - 100px);
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: #ff9e0b;
+  border-radius: 5px;
+  text-align: center;
+  &__btn{
+    height: 50px;
+    width: 100%;
+    margin: 0 auto;
+    line-height: 50px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  &__btn:hover{
+    color: #1481ff;
+  }
+}

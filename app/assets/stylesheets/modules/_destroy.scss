@@ -1,0 +1,18 @@
+.cancel_content{
+  padding-top: 65px;
+  text-align: center;
+  font-size: 23px;
+  font-family: 'SmartFont';
+  .h2{
+    margin-top: 40px;
+    margin-bottom: 15px;
+  }
+  .root_btn{
+    text-decoration: none;
+    color: black;
+  }
+  .root_btn:hover{
+    text-decoration: underline;
+    text-decoration-color: #1481ff;
+  }
+}

@@ -1,0 +1,39 @@
+header{
+    height: 65px;
+    position: fixed;
+    width: 100%;
+    background-color: #ff9e0b;
+    z-index: 2;
+    display: flex;
+  .header-title{
+      color: white;
+      font-size: 35px;
+      line-height: 100px;
+      font-family: 'SmartFont';
+      line-height: 65px;
+      text-decoration: none;
+      margin-left: 15px;
+  }
+  .header-list{
+      width: auto;
+      display: flex;
+      margin-right: 40px;
+      margin-left: auto;
+      line-height: 65px;
+      font-family: 'SmartFont';
+      font-size: 18px;
+    &__logout{
+        padding-right: 15px;
+    }
+
+    .btn{
+      text-decoration: none;
+      color: white;
+      
+    }
+    .btn:hover{
+        text-decoration: underline;
+        text-decoration-color: rgb(255, 219, 153);
+    }
+  }
+}

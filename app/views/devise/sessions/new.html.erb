@@ -1,0 +1,31 @@
+<div class="contents row">
+  <h2 class="title">meet-bar</h2>
+  <div class="user-sign-box">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="newuser-box">
+        <div class="field">
+          <%= f.label :name, "氏名", class:"form-text"%><br />
+          <%= f.text_field :name, placeholder: "氏名", autofocus: true %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email, "メールアドレス", class:"form-text" %><br />
+          <%= f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email" %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :password, "パスワード", class:"form-text"%>
+          <% if @validatable %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: " パスワード" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Log in", class:"create-btn"  %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render "devise/shared/links" %>

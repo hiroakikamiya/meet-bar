@@ -1,0 +1,129 @@
+.contents{
+    height: 100vh;
+    width: calc(100vw - 470px);
+    float: right;
+    position: relative;
+    padding-top: 75px;
+    margin-left: 60px;
+    margin-right: 60px;
+  .h2{
+      margin-left: 20px;
+      padding-top: 15px;
+      font-size: 25px;
+      font-weight: 700;
+  }
+  &__top-content{
+      background-color: #d4d4d4;
+      height: 50px;
+      margin: 0 auto;
+      width: calc(100% - 40px);
+    &__text{
+        line-height: 50px;
+        color: rgb(20, 129, 255);
+        text-align: center;
+        font-size: 20px;
+    }
+  }
+  .line{
+      margin: 25px auto;
+      border-bottom: solid 0.5px rgb(184, 184, 184);
+  }
+  &__main-content{
+      margin: 20px 55px;
+      border: solid 1px rgb(184, 184, 184);
+      border-radius: 20px;
+  }
+  &__main-content:hover{
+    border: solid 2px #ff9e0b;
+  }
+  // &__main-content:before {
+  //   content:"";
+  //   position: absolute;
+  //   right: 100%;
+  //   top: 26px;
+  //   width: 0;
+  //   height: 0;
+  //   border-top: 18px solid transparent;
+  //   border-right: 20px solid #ffcb8a;
+  //   border-bottom: 18px solid transparent;
+  // }
+}
+
+.card{
+    margin: 30px 50px;
+  .catch-copy{
+      color: rgb(20, 129, 255);
+      font-size: 30px;
+      border-bottom: solid 0.5px rgb(184, 184, 184);
+      margin: 10px 0;
+      font-weight: 600;
+  }
+  .data{
+      border-bottom: solid 0.5px rgb(184, 184, 184);
+      margin-bottom: 10px;
+      list-style-type: disc;
+      padding-left: 30px;
+      font-size: 18px;
+    &--time{
+        margin-bottom: 10px;
+    }
+  }
+  .heading{
+      font-size: 22px;
+      font-weight: 600;
+      font-family: 'SmartFont';
+      padding: 15px 0;  
+  }
+  .comment{
+      font-size: 17px;
+      padding-bottom: 10px;
+  }
+  .shop_image{
+      width:35%;
+      max-width: 35%;
+      height: auto;
+  }
+}
+.edit_restaurant{
+  width: calc(100% - 100px);
+  margin: 0 auto;
+  margin-top: 10px;
+  .reserve-btn{
+    width: 100%;
+    height: 50px;
+    background-color: #ff9e0b;
+    margin: 0 auto;
+    line-height: 50px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+  }
+  .reserve-btn:hover{
+    color: #1481ff;
+    background-color: #ff8800;
+  }
+}
+
+.reserved-menu{
+  width: calc(100% - 100px);
+  margin: 0 auto;
+  margin-top: 10px;
+  height: 50px;
+  &__text{
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    background-color: #d4d4d4;
+    margin: 0 auto;
+    line-height: 50px;
+    color: rgb(136, 136, 136);
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+  }
+}

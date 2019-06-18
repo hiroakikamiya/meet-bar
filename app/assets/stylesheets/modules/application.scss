@@ -1,0 +1,15 @@
+/*
+ *= require fullcalendar
+ */
+body{
+  width: 100%;
+  height: 100%;
+}
+@import "./reset";
+@import "font";
+@import "sidebar";
+@import "calendar";
+@import "restaurant";
+@import "form";
+@import "header";
+@import "user.new";

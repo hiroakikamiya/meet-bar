@@ -1,0 +1,75 @@
+.sidebar{
+    width: 350px;
+    height: 100vh;
+    background-color: #ffe3bc;
+    float: left;
+    position: fixed;
+  .sidebar-top{
+      background-color: #ff9e0b;
+      height: 65px;
+      padding: 0 20px;
+      display: flex;
+      font-size: 20px;
+  }
+}
+.menu{
+    height: calc(100vh - 100px);
+    padding: 0 20px;
+  &__user{
+      display: flex;
+      vertical-align: middle;
+    &--avatar{
+        height: 50px;
+        margin: 10px;
+      .avatar{
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        margin-right: 3px;
+        border-radius: 50%;
+        border: 2px solid #eee;
+        max-width: none;
+      }
+    }
+    &--user_name{
+      .show_link{
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 70px;
+        text-decoration: none;
+        font-family: 'SmartFont';
+        color: rgb(65, 65, 65);
+      }
+      .show_link:hover{
+        color: white;
+        background-color: #ff8800;
+      }
+    }
+  }
+  &__form_link{
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-weight: 600px;
+    &__btn{
+      display: block;
+      text-align: center;
+      width: 100%;
+      height: 40px;
+      background-color: #ff9e0b;
+      text-decoration: none;
+      color: white;
+      border-radius: 3px;
+    }
+    &__btn:hover{
+      background-color: #ff8800;
+      color: #1481ff;
+    }
+  }
+}
+@font-face {
+  font-family: 'SmartFont';
+  src: font-url('03SmartFontUI.ttf') format('truetype');
+}
