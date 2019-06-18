@@ -96,8 +96,6 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.11.1)
-    font-awesome-sass (5.8.1)
-      sassc (>= 1.11)
     fullcalendar-rails (3.9.0.0)
       jquery-rails (>= 4.0.5, < 5.0.0)
       jquery-ui-rails (>= 5.0.2)
@@ -276,7 +274,6 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  font-awesome-sass
   fullcalendar-rails
   haml-rails
   jbuilder (~> 2.5)
