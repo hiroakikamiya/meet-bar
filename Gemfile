@@ -76,6 +76,7 @@ gem 'mini_magick'
 gem 'pry-rails'
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 group :production do
   gem 'unicorn', '5.4.1'

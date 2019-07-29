@@ -7,8 +7,6 @@ class RestaurantsController < ApplicationController
     count_userrestaurant(@restaurants)
   end
 
-
-  
   def new
     @restaurant = Restaurant.new
     @restaurant.images.build
