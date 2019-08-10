@@ -1,41 +1,49 @@
 = form_for restaurant do |f|
-  - if restaurant.errors.any?
-    .chat-group-form__errors
-      %h2= "#{group.errors.full_messages.count}件のエラーが発生しました。"
-      %ul
-        - restaurant.errors.full_messages.each do |message|
-          %li= message
   .restaurant_form
     .restaurant_form--catchcopy.box
       .article
         = f.label :catchcopy, "キャッチコピー", class: 'left-label'
+        .right-label
+          必須
       = f.text_field :catchcopy, class: 'right-form', placeholder: 'キャッチコピーで目を引きましょう'
     .restaurant_form--shop_name.box
       .article
         = f.label :shop_name, "店名", class: 'left-label'
+        .right-label
+          必須
       = f.text_field :shop_name, class: 'right-form', placeholder: '店名を記入しましょう'
     .restaurant_form--address.box
       .article
         = f.label :address, "場所", class: 'left-label'
+        .right-label
+          必須
       = f.text_field :address, class: 'right-form', placeholder: 'お店の場所を記入しましょう'
     .restaurant_form--price.box
       .article
         = f.label :price, "金額", class: 'left-label'
+        .right-label
+          必須
       .select-form
         = f.select :price,[["¥1000",1000],["¥2000",2000],["¥3000",3000],["¥4000",4000],["¥5000",5000]]
     .restaurant_form--capacity.box
       .article
         = f.label :capacity, "募集人数", class: 'left-label'
+        .right-label
+          必須
       .select-form
         = f.select :capacity, options_for_select((1..50).to_a)
     .restaurant_form--time.box
       .article
         = f.label :reserve_date, "日付", class: 'left-label'
+        .right-label
+          必須
       .select-form
         = f.date_select :reserve_date
     .restaurant_form--time.box
       .article
         = f.label :reserve_time, "時間", class: 'left-label'
+        .right-label
+          必須
       .select-form
         = f.time_select :reserve_time
     .restaurant_form--comment.box
@@ -46,6 +54,8 @@
       .box
         .article
           = b.label :comment, "画像URL", class: 'left-label'
+          .right-label
+            必須
         = b.text_field :image, class: 'right-form ', placeholder: 'ImageURL'
     .action
       = f.submit "MEET投稿", class: 'create-btn'

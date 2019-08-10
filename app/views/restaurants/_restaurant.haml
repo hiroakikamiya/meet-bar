@@ -29,16 +29,17 @@
     .image_box
       = image_tag (restaurant.images[0].image), class: "shop_image"
     - if user_signed_in?
-      - if UserRestaurant.exists?(user_id: current_user.id, restaurant_id: restaurant.id)
+      - if restaurant.host_id == current_user.id || UserRestaurant.exists?(attender_id: current_user.id, restaurant_id: restaurant.id)
         .reserved-menu
           .reserved-menu__text
             参加済
       - else
         - if restaurant.capacity + 1 > @userrestaurants
           = form_for restaurant do |f|
-            - restaurant.users.each do |user|
-              %input{name: "restaurant[user_ids][]", type: "hidden", value: user.id }
-            %input{name: "restaurant[user_ids][]", type: "hidden", value: current_user.id }
+            - if UserRestaurant.exists?(restaurant_id: restaurant.id)
+              - restaurant.users.each do |user|
+                %input{name: "restaurant[attender_ids][]", type: "hidden", value: user.id }
+            %input{name: "restaurant[attender_ids][]", type: "hidden", value: current_user.id }
             = f.submit "参加する", class: 'reserve-btn'
         - else
           .reserved-menu

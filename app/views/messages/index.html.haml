@@ -1,0 +1,64 @@
+= render partial: '/shared/header'
+.header-block
+.side-contents
+  .side-contents__top
+    .restaurant-data
+      .catch-copy
+        = @restaurant.catchcopy
+      %ul.data
+        %li.data--list
+          店名：
+          = @restaurant.shop_name
+        %li.data--list
+          場所：
+          = @restaurant.address
+        %li.data--list
+          金額：
+          = @restaurant.price
+        %li.data--list
+          人数：
+          = @restaurant.capacity
+        %li.data--list
+          日付：
+          = @restaurant.reserve_date.strftime("%Y/%m/%d")
+        %li.data--list
+          時間：
+          = @restaurant.reserve_time.strftime("%H:%M")
+      .comment
+        .comment--title
+          MEETERコメント
+        .comment--text
+          = @restaurant.comment
+      .image_box
+        = image_tag (@restaurant.images[0].image), class: "image_box__image"
+  .double-line
+  .side-contents__under
+    .host
+      .host__title
+        主催者
+      .host__data
+        .host__data--avatar
+          = image_tag @host[0].avatar, class: "host__data--avatar__image"
+        .host__data--name
+          = @host[0].name
+    - @attender.each do |attender|
+      .attender
+        .attender__title
+          参加者
+        .attender__data
+          .attender__data--avatar
+            = image_tag attender.avatar, class: "attender__data--avatar__image"
+          .attender__data--name
+            = attender.name
+- if flash[:notice]
+  %p.alart-message
+    = flash[:notice]
+.message-contents
+  .messages
+    = render @messages
+  .form-box
+    = form_for [@restaurant, @message] do |f|
+      .form-box__message
+        = f.text_area :message, class: 'form-box__message__area', placeholder: 'メッセージを入力してください'
+      .form-box__submit
+        = f.submit '送信', class: 'form-box__submit__btn'

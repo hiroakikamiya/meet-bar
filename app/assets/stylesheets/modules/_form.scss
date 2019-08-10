@@ -34,9 +34,21 @@
       left: 10px;
       top: 5px;
     }
+    .right-label{
+      padding: 2px 4px;
+      border-radius: 2.5px;
+      color: white;
+      font-size: 12px;
+      display: inline-block;
+      vertical-align: top;
+      background-color: #f57904;
+      position: absolute;
+      right: 10px;
+      top: 5px;
+    }
   }
   .right-form{
-    width: calc(100% - 250px);
+    width: calc(100% - 255px);
     border: none;
     border-bottom: solid 0.8px rgb(160, 160, 160);
     margin-top: auto;

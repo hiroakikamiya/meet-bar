@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
 
   before_action :set_restaurant, only: [:update]
+  before_action :move_to_index, except: [:show, :index]
   
   def index
     @restaurants = Restaurant.order('id DESC').limit(5)
@@ -13,8 +14,13 @@ class RestaurantsController < ApplicationController
   end
   
   def create
-    current_user.restaurants.create(restaurant_params)
-    redirect_to root_path
+    restaurant = Restaurant.new(restaurant_params)
+    if restaurant.save
+      redirect_to root_path
+    else
+      @restaurant = current_userestaurants.new(restaurant_params)
+      render action: :new
+    end
   end
   
   def show
@@ -26,14 +32,18 @@ class RestaurantsController < ApplicationController
   def update
     @userrestaurants = UserRestaurant.where(restaurant_id: @restaurant.id).count
     if @restaurant.capacity + 1 > @userrestaurants
-      @restaurant.update(restaurant_params)
-        redirect_to root_path(@restaurant)
+      @restaurant.update(user_restaurent_params)
+      redirect_to root_path(@restaurant)
     end
   end
 
   private
   def restaurant_params
-    params.require(:restaurant).permit(:catchcopy, :shop_name, :address, :price, :capacity, :reserve_date, :reserve_time, :comment,{ :user_ids => [] }, images_attributes: [:image, :restaurant_id])
+    params.require(:restaurant).permit(:catchcopy, :shop_name, :address, :price, :capacity, :reserve_date, :reserve_time, :comment, images_attributes: [:image, :restaurant_id]).merge(host_id: current_user.id)
+  end
+
+  def user_restaurent_params
+    params.require(:restaurant).permit({ :attender_ids => [] })
   end
 
   def set_restaurant
@@ -45,5 +55,10 @@ class RestaurantsController < ApplicationController
       @userrestaurants = UserRestaurant.where(restaurant_id: restaurant.id).count
     end
   end 
+  
+  def move_to_index
+    redirect_to root_path unless user_signed_in?
+  end
+
 end
 

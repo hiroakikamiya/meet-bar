@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_103742) do
+ActiveRecord::Schema.define(version: 2019_08_08_123752) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -41,26 +41,38 @@ ActiveRecord::Schema.define(version: 2019_06_15_103742) do
     t.index ["restaurant_id"], name: "index_images_on_restaurant_id"
   end
 
-  create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "capacity", null: false
-    t.integer "price", null: false
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "message"
+    t.bigint "restaurant_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "catchcopy"
-    t.string "shop_name"
+    t.index ["restaurant_id"], name: "index_messages_on_restaurant_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "host_id"
+    t.string "catchcopy", null: false
+    t.string "shop_name", null: false
+    t.string "address", null: false
+    t.integer "price", null: false
+    t.integer "capacity", null: false
+    t.date "reserve_date", null: false
+    t.time "reserve_time", null: false
     t.text "comment"
-    t.string "address"
-    t.date "reserve_date"
-    t.time "reserve_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["host_id"], name: "index_restaurants_on_host_id"
   end
 
   create_table "user_restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "attender_id"
     t.bigint "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["attender_id"], name: "index_user_restaurants_on_attender_id"
     t.index ["restaurant_id"], name: "index_user_restaurants_on_restaurant_id"
-    t.index ["user_id"], name: "index_user_restaurants_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -78,6 +90,9 @@ ActiveRecord::Schema.define(version: 2019_06_15_103742) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "images", "restaurants"
+  add_foreign_key "messages", "restaurants"
+  add_foreign_key "messages", "users"
+  add_foreign_key "restaurants", "users", column: "host_id"
   add_foreign_key "user_restaurants", "restaurants"
-  add_foreign_key "user_restaurants", "users"
+  add_foreign_key "user_restaurants", "users", column: "attender_id"
 end
