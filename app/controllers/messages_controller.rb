@@ -39,9 +39,6 @@ class MessagesController < ApplicationController
   end
 
   def set_attender
-    restaurantuser = UserRestaurant.where(restaurant_id: @restaurant)
-    restaurantuser.each do |r_u|
-      @attender = User.where(id: r_u.attender_id)
-    end
+    @restaurantuser = UserRestaurant.where(restaurant_id: @restaurant)
   end
 end

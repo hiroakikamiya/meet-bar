@@ -41,16 +41,17 @@
           = image_tag @host[0].avatar, class: "host__data--avatar__image"
         .host__data--name
           = @host[0].name
-    - if @attender.present?
-      - @attender.each do |attender|
-        .attender
-          .attender__title
-            参加者
+    .attender
+      .attender__title
+        参加者
+      - if @restaurantuser.present?
+      - @restaurantuser.each do |r_u|
+        - attender = User.where(id: r_u.attender_id)
           .attender__data
             .attender__data--avatar
-              = image_tag attender.avatar, class: "attender__data--avatar__image"
+              = image_tag attender[0].avatar, class: "attender__data--avatar__image"
             .attender__data--name
-              = attender.name
+              = attender[0].name
 .right-contents
   - if flash[:notice]
     %p.alart-message
