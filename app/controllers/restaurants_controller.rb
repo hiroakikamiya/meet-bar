@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-
+  respond_to :html
   before_action :set_restaurant, only: [:update]
   before_action :move_to_index, except: [:show, :index]
   
@@ -11,15 +11,15 @@ class RestaurantsController < ApplicationController
   def new
     @restaurant = Restaurant.new
     @restaurant.images.build
+    @image = Image.new
   end
   
   def create
-    restaurant = Restaurant.new(restaurant_params)
-    if restaurant.save
+    @restaurant = Restaurant.new(restaurant_params)
+    if @restaurant.save
       redirect_to root_path
     else
-      @restaurant = current_userestaurants.new(restaurant_params)
-      render action: :new
+      respond_with @restaurant, location: new_restaurant_path
     end
   end
   
@@ -55,7 +55,7 @@ class RestaurantsController < ApplicationController
       @userrestaurants = UserRestaurant.where(restaurant_id: restaurant.id).count
     end
   end 
-  
+
   def move_to_index
     redirect_to root_path unless user_signed_in?
   end

@@ -3,12 +3,22 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      restaurant: MEET
     attributes:
       user:
         name: 氏名
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード確認
+      restaurant:
+        catchcopy: キャッチコピー
+        shop_name: 店名
+        address: 場所
+        price: 金額
+        capacity: 募集人数
+        reserve_date: 日付
+        reserve_time: 時間
+        comment: コメント
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

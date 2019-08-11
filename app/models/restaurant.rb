@@ -1,4 +1,3 @@
-
 class Restaurant < ApplicationRecord
   has_many :user_restaurants
   has_many :attender, class_name: "User", through: :user_restaurants

@@ -1,13 +1,13 @@
 = render partial: '/shared/header'
 = render partial: '/shared/sidebar'
 .contents
+  .h2
+    MEETを管理しよう
+  .contents__top-content
+    .contents__top-content__text
+      主催しているMEET
+  .line
   - @host_restaurant.each do |restaurant|
-    .h2
-      MEETを管理しよう
-    .contents__top-content
-      .contents__top-content__text
-        主催しているMEET
-    .line
     .contents__main-content
       .card
         .catch-copy
@@ -38,13 +38,13 @@
             = restaurant.comment
         .image_box
           = image_tag (restaurant.images[0].image), class: "shop_image"
+  .contents__top-content.attend-content
+    .contents__top-content__text
+      参加予定のMEETです
+  .line
   - @attend_restaurant.each do |gest|
     - gest_restaurant = Restaurant.where(id: gest.restaurant_id)
     - gest_restaurant.each do |restaurant|
-      .contents__top-content.attend-content
-        .contents__top-content__text
-          参加予定のMEETです
-      .line
       .contents__main-content
         .card
           .catch-copy

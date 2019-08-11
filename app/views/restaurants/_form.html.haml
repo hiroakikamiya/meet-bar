@@ -2,60 +2,97 @@
   .restaurant_form
     .restaurant_form--catchcopy.box
       .article
-        = f.label :catchcopy, "キャッチコピー", class: 'left-label'
-        .right-label
-          必須
+        .article__top
+          = f.label :catchcopy, "キャッチコピー", class: 'left-label'
+          .right-label
+            必須
+        .article__bottom
+          - @restaurant.errors.full_messages_for(:catchcopy).each do |message|
+            .error-message
+              = message
       = f.text_field :catchcopy, class: 'right-form', placeholder: 'キャッチコピーで目を引きましょう'
     .restaurant_form--shop_name.box
       .article
-        = f.label :shop_name, "店名", class: 'left-label'
-        .right-label
-          必須
+        .article__top
+          = f.label :shop_name, "店名", class: 'left-label'
+          .right-label
+            必須
+        .article__bottom
+          - @restaurant.errors.full_messages_for(:shop_name).each do |message|
+            .error-message
+              = message
       = f.text_field :shop_name, class: 'right-form', placeholder: '店名を記入しましょう'
     .restaurant_form--address.box
       .article
-        = f.label :address, "場所", class: 'left-label'
-        .right-label
-          必須
+        .article__top
+          = f.label :address, "場所", class: 'left-label'
+          .right-label
+            必須
+        .article__bottom
+          - @restaurant.errors.full_messages_for(:address).each do |message|
+            .error-message
+              = message
       = f.text_field :address, class: 'right-form', placeholder: 'お店の場所を記入しましょう'
     .restaurant_form--price.box
       .article
-        = f.label :price, "金額", class: 'left-label'
-        .right-label
-          必須
+        .article__top
+          = f.label :price, "金額", class: 'left-label'
+          .right-label
+            必須
+        .article__bottom
+          - @restaurant.errors.full_messages_for(:price).each do |message|
+            .error-message
+              = message
       .select-form
-        = f.select :price,[["¥1000",1000],["¥2000",2000],["¥3000",3000],["¥4000",4000],["¥5000",5000]]
+        = f.select :price,[["¥1000",1000],["¥2000",2000],["¥3000",3000],["¥4000",4000],["¥5000",5000]], {prompt: "---"}
     .restaurant_form--capacity.box
       .article
-        = f.label :capacity, "募集人数", class: 'left-label'
-        .right-label
-          必須
+        .article__top
+          = f.label :capacity, "募集人数", class: 'left-label'
+          .right-label
+            必須
+        .article__bottom
+          - @restaurant.errors.full_messages_for(:capacity).each do |message|
+            .error-message
+              = message
       .select-form
-        = f.select :capacity, options_for_select((1..50).to_a)
+        = f.select :capacity, options_for_select((1..50).to_a), {prompt: "---"}
     .restaurant_form--time.box
       .article
-        = f.label :reserve_date, "日付", class: 'left-label'
-        .right-label
-          必須
+        .article__top
+          = f.label :reserve_date, "日付", class: 'left-label'
+          .right-label
+            必須
+        .article__bottom
+          - @restaurant.errors.full_messages_for(:reserve_date).each do |message|
+            .error-message
+              = message
       .select-form
-        = f.date_select :reserve_date
+        = f.date_select :reserve_date, {prompt: "---"}
     .restaurant_form--time.box
       .article
-        = f.label :reserve_time, "時間", class: 'left-label'
-        .right-label
-          必須
+        .article__top
+          = f.label :reserve_time, "時間", class: 'left-label'
+          .right-label
+            必須
+        .article__bottom
+          - @restaurant.errors.full_messages_for(:reserve_time).each do |message|
+            .error-message
+              = message
       .select-form
-        = f.time_select :reserve_time
+        = f.time_select :reserve_time, {prompt: "---"}
     .restaurant_form--comment.box
       .article
-        = f.label :comment, "コメント", class: 'left-label'
+        .article__top
+          = f.label :comment, "コメント", class: 'left-label'
       = f.text_area :comment, class: 'right-form', placeholder: 'コメントを記入しましょう'
     = f.fields_for :images do |b|
       .box
         .article
-          = b.label :comment, "画像URL", class: 'left-label'
-          .right-label
-            必須
+          .article__top
+            = b.label :image, "画像URL", class: 'left-label'
+            .right-label
+              必須
         = b.text_field :image, class: 'right-form ', placeholder: 'ImageURL'
     .action
       = f.submit "MEET投稿", class: 'create-btn'
