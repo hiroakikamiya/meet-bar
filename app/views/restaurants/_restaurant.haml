@@ -37,7 +37,7 @@
         - if restaurant.capacity + 1 > @userrestaurants
           = form_for restaurant do |f|
             - if UserRestaurant.exists?(restaurant_id: restaurant.id)
-              - restaurant.users.each do |user|
+              - restaurant.attender.each do |user|
                 %input{name: "restaurant[attender_ids][]", type: "hidden", value: user.id }
             %input{name: "restaurant[attender_ids][]", type: "hidden", value: current_user.id }
             = f.submit "参加する", class: 'reserve-btn'
