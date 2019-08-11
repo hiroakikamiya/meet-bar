@@ -24,7 +24,7 @@
   display: flex;
   margin-top: 2px;
   .article{ 
-    width: 250px;
+    width: 300px;
     height: 60px;
     background-color: rgb(214, 214, 214); 
     margin-right: 5px;
@@ -53,14 +53,15 @@
       display: block;
       left: 10px;
       bottom: 3px;
-      font-size: 13px; 
+      font-size: 17px; 
       .error-message{
-        color: red;
+        color: #ff6600;
+        font-family: 'SmartFont';
       }
     }
   }
   .right-form{
-    width: calc(100% - 255px);
+    width: calc(100% - 305px);
     border: none;
     border-bottom: solid 0.8px rgb(160, 160, 160);
     margin-top: auto;
@@ -119,7 +120,7 @@
 }
 
 .field_with_errors{
-  width: calc(100% - 255px);
+  width: calc(100% - 305px);
   margin-top: auto;
   margin-bottom: 0;
   margin-right: 5px;
