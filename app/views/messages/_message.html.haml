@@ -14,7 +14,10 @@
     .message__box
       .upper-message
         .upper-message__avatar
-          = image_tag message.user.avatar, class: 'upper-message__avatar__image'
+          - if message.user.avatar.attached?
+            = image_tag message.user.avatar, class: 'upper-message__avatar__image'
+          - else 
+            = image_tag "default.jpg", class: 'upper-message__avatar__image'
         - if message.message.present?
           .upper-message__content-box
             %p.upper-message__content-box__text

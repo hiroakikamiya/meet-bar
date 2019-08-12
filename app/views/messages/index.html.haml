@@ -38,7 +38,10 @@
         主催者
       .host__data
         .host__data--avatar
-          = image_tag @host[0].avatar, class: "host__data--avatar__image"
+          - if @host[0].avatar.attached?
+            = image_tag @host[0].avatar, class: "host__data--avatar__image"
+          - else 
+            = image_tag "default.jpg", class: 'host__data--avatar__image'
         .host__data--name
           = @host[0].name
     .attender
@@ -49,7 +52,10 @@
         - attender = User.where(id: r_u.attender_id)
           .attender__data
             .attender__data--avatar
-              = image_tag attender[0].avatar, class: "attender__data--avatar__image"
+              - if attender[0].avatar.attached?
+                = image_tag attender[0].avatar, class: "attender__data--avatar__image"
+              - else
+                = image_tag "default.jpg", class: 'attender__data--avatar__image'
             .attender__data--name
               = attender[0].name
 .right-contents

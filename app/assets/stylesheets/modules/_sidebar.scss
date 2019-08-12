@@ -19,12 +19,14 @@
       display: flex;
       vertical-align: middle;
     &--avatar{
-        height: 50px;
+        height: 110px;
+        width: 110px;
         margin: 10px;
       .avatar{
         display: inline-block;
-        height: 50px;
-        width: 50px;
+        height: 110px;
+        width: 110px;
+        object-fit: cover;
         margin-right: 3px;
         border-radius: 50%;
         border: 2px solid #eee;
@@ -32,10 +34,12 @@
       }
     }
     &--user_name{
+      height: 110px;
+      margin-top: 10px;
       .show_link{
-        font-size: 25px;
+        font-size: 30px;
         font-weight: 600;
-        line-height: 70px;
+        line-height: 110px;
         text-decoration: none;
         font-family: 'SmartFont';
         color: rgb(65, 65, 65);
