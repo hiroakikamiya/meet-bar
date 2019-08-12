@@ -27,7 +27,7 @@
           <%= f.label :password, "パスワード（8〜16文字）", class:"form-text"%>
           <% if @validatable %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
+          <% end %>
           <%= f.password_field :password, autocomplete: "new-password" %>
           <% @user.errors.full_messages_for(:password).each do |message| %>
             <div class="error-message">

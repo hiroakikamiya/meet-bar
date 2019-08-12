@@ -60,6 +60,18 @@
       }
     }
   }
+  .field_with_errors{
+    width: calc(100% - 305px);
+    margin-top: auto;
+    margin-bottom: 0;
+    margin-right: 5px;
+    display: flex;
+    .right-form{
+    width: 100%;
+    border: none;
+    border-bottom: solid 0.8px rgb(160, 160, 160);
+    }
+  }
   .right-form{
     width: calc(100% - 305px);
     border: none;
@@ -119,15 +131,3 @@
   }
 }
 
-.field_with_errors{
-  width: calc(100% - 305px);
-  margin-top: auto;
-  margin-bottom: 0;
-  margin-right: 5px;
-  display: flex;
-  .right-form{
-  width: 100%;
-  border: none;
-  border-bottom: solid 0.8px rgb(160, 160, 160);
-  }
-}
