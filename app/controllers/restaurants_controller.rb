@@ -5,7 +5,6 @@ class RestaurantsController < ApplicationController
   
   def index
     @restaurants = Restaurant.order('id DESC').limit(5)
-    count_userrestaurant(@restaurants)
   end
 
   def new
@@ -26,7 +25,6 @@ class RestaurantsController < ApplicationController
   def show
     @restaurants = Restaurant.where(reserve_date: params[:reserve_date])
     @reserve_date = params[:reserve_date]
-    count_userrestaurant(@restaurants)
   end
 
   def update
@@ -49,12 +47,6 @@ class RestaurantsController < ApplicationController
   def set_restaurant
     @restaurant = Restaurant.find(params[:id])
   end
-
-  def count_userrestaurant(restaurants)
-    restaurants.each do |restaurant|
-      @userrestaurants = UserRestaurant.where(restaurant_id: restaurant.id).count
-    end
-  end 
 
   def move_to_index
     redirect_to root_path unless user_signed_in?
