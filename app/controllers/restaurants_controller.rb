@@ -31,7 +31,7 @@ class RestaurantsController < ApplicationController
 
   def update
     @userrestaurants = UserRestaurant.where(restaurant_id: @restaurant.id).count
-    if @restaurant.capacity + 1 > @userrestaurants
+    if @restaurant.capacity > @userrestaurants
       @restaurant.update(user_restaurent_params)
       redirect_to root_path(@restaurant)
     end

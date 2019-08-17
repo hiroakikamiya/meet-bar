@@ -34,7 +34,7 @@
           .reserved-menu__text
             参加済
       - else
-        - if restaurant.capacity + 1 > @userrestaurants
+        - if restaurant.capacity > @userrestaurants
           = form_for restaurant do |f|
             - if UserRestaurant.exists?(restaurant_id: restaurant.id)
               - restaurant.attender.each do |user|
