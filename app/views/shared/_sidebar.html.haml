@@ -1,5 +1,4 @@
 .sidebar
-  .sidebar-top
   .menu
     -if user_signed_in?
       .menu__user
@@ -12,4 +11,6 @@
           = link_to current_user.name, user_path(current_user.id), class: "show_link"
       .menu__form_link
         = link_to "MEETしよう！", new_restaurant_path, class: 'menu__form_link__btn'
-    = render partial: '/shared/calendar'
+      .menu__talk
+        = render partial: '/shared/message_menu', collection: @message_restaurants , as: "restaurant"
+    -# = render partial: '/shared/calendar'

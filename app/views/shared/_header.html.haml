@@ -5,7 +5,7 @@
       %li.header-list__logout
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-dark btn-sm"
       %li.header-list__user-data
-        = link_to "アカウント情報", new_user_session_path, class: "btn btn-dark btn-sm"
+        = link_to "アカウント情報", user_path(current_user.id), class: "btn btn-dark btn-sm"
   - else
     %ul.header-list
       %li.header-list__logout

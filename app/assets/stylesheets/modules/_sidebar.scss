@@ -1,20 +1,12 @@
 .sidebar{
     width: 350px;
-    height: 100vh;
     background-color: #ffe3bc;
     float: left;
-    position: fixed;
-  .sidebar-top{
-      background-color: #ff9e0b;
-      height: 65px;
-      padding: 0 20px;
-      display: flex;
-      font-size: 20px;
-  }
+    margin-top: 50px;
 }
 .menu{
-    height: calc(100vh - 100px);
     padding: 0 20px;
+    margin-bottom: 20px;
   &__user{
       display: flex;
       vertical-align: middle;
@@ -43,6 +35,7 @@
         text-decoration: none;
         font-family: 'SmartFont';
         color: rgb(65, 65, 65);
+        
       }
       .show_link:hover{
         color: white;
@@ -71,6 +64,9 @@
       background-color: #ff8800;
       color: #1481ff;
     }
+  }
+  #calender{
+    margin-bottom: 20px;
   }
 }
 @font-face {

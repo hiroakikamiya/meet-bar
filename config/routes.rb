@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
+
   devise_for :users
+
   root 'restaurants#index'
+
   resources :restaurants, only: [:index, :new, :create, :update] do
     resources :images
     resources :messages, only: [:index, :create]
+    collection do
+      get 'search'
+    end
   end
-  resources :users, only: [:show, :destroy]
-  get '/restaurants/:reserve_date', to: 'restaurants#show'
+
+  resources :users, only: [:show, :destroy, :edit, :update]
+  get '/restaurants/:reserve_date', to: 'restaurants#date'
+
 end

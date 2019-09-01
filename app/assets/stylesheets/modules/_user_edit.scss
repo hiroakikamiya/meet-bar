@@ -1,0 +1,96 @@
+.user_edit{
+  margin:0 170px;
+  min-width: 880px;
+  padding-top: 65px;
+  &__title{
+    margin-top: 80px;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'SmartFont';
+  }
+  .line{
+    border-top: solid 1px rgb(201, 201, 201);
+    margin: 20px 30px;
+  }
+  &__data{
+    margin: 0 20px;
+    .form_field{
+      display: flex;
+      margin-top: 15px;
+      &__title{
+        font-family: 'SmartFont';
+        width: 200px;
+        font-size: 23px;
+        margin-right: 20px;
+      }
+      &__form{
+        width: calc(100% - 230px);
+        #user_email{
+          background-color: rgb(238, 238, 238);
+          border: none;
+          border-bottom: solid 1px rgb(153, 153, 153);
+        }
+        #user_name{
+          background-color: rgb(238, 238, 238);
+          border: none;
+          border-bottom: solid 1px rgb(153, 153, 153);
+        }
+        #user_comment{
+          background-color: rgb(238, 238, 238);
+          border: none;
+          border-bottom: solid 1px rgb(153, 153, 153);
+          resize: none;
+          width: 100%;
+          height: 100px;
+        }
+      }
+      &__avatar_form{
+        position: relative;
+        .icon{
+          font-size: 25px;
+        }
+        #user_avatar{
+          position: absolute;
+          bottom: 0;
+          left: 20px;
+          // display: none;
+          // margin-bottom: 0;
+          // margin-top: auto;
+        }
+      }
+      &__image{
+        width: 205px;
+        height: 205px;
+        object-fit: cover;
+        border: solid 1px rgb(201, 201, 201);
+        .avatar{
+          margin: 2.5px;
+          width: 200px;
+          height: 200px;
+          object-fit: cover;
+        }
+      }
+    }
+    .actions{
+      text-decoration: none;
+      border: none;
+      width: 100%;
+      font-family: 'SmartFont';
+      color:  rgb(80, 158, 158);
+      text-align: center;
+      .edit-btn{
+        height: 70px;
+        width: 500px;
+        border: none;
+        // background-color: #f57904;
+        color: white;
+        border-radius: 5px;
+        font-size: 35px;
+        color:  rgb(80, 158, 158);
+      }
+      .edit-btn:hover{
+      color: rgb(134, 255, 255);
+      }
+    }
+  }
+}

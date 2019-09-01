@@ -16,27 +16,38 @@
         margin: 10px 0;
         font-weight: 600;
         font-family: 'SmartFont';
+        word-break: break-all;
       }
       .data{
         border-bottom: solid 0.5px rgb(184, 184, 184);
         margin-bottom: 10px;
         list-style-type: disc;
-        padding-left: 30px;
+        padding-left: 15px;
         font-size: 18px;
         &--list{
           margin-bottom: 5px;
+          display: flex;
+          font-size: 22px;
+          &__head{
+          }
+          &__text{
+            width: 370px;
+            word-break: break-all;
+          }
         }
       }
       .comment{
         &--title{
-          font-size: 22px;
+          font-size: 25px;
           font-weight: 600;
           font-family: 'SmartFont';
-          padding: 15px 0;  
+          padding: 15px 0;
         }
         &--text{
-          font-size: 17px;
+          font-size: 22px;
           padding-bottom: 10px;
+          word-break: break-all;
+          margin-left: 15px;
         }
       }
       .image_box{
@@ -75,8 +86,10 @@
           }
         }
         &--name{
+          width: calc(100% - 100px);
           font-size: 25px;
           line-height: 60px;
+          word-break: break-all;
         }
       }
     }
@@ -102,6 +115,8 @@
           }
         }
         &--name{
+          width: calc(100% - 100px);
+          word-break: break-all;
           font-size: 25px;
           line-height: 60px;
         }

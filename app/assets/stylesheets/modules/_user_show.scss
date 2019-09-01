@@ -1,0 +1,168 @@
+.mypage{
+  margin:0 170px;
+  min-width: 880px;
+  padding-top: 65px;
+  .title{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'SmartFont';
+  }
+  .line{
+    border-top: solid 1px rgb(201, 201, 201);
+    margin: 20px 30px;
+  }
+  .edit_user{
+    width: 100%;
+
+  }
+  .user_info{
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    width: calc(100% - 40px);
+    &__avatar{
+      width: 205px;
+      height: 205px;
+      border: solid 0.5px rgb(201, 201, 201);
+      text-align: center;
+      &__image{
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-top: 2.5px;
+      }
+      .hidden{
+        display: none;
+      }
+    }
+    &__basic{
+      height: 205px;
+      width: calc(100% - 245px);
+      margin-right: 0;
+      margin-left: auto;
+      &__name{
+        font-size: 25px;
+        font-family: 'SmartFont';
+        height: 40px;
+        overflow: hidden;
+      }
+      &__comment{
+        height: calc(100% - 40px);
+        width: 100%;
+        font-size: 20px;
+        font-family: 'SmartFont';
+        word-break: break-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+  .edit_link{
+    text-align: center;
+    font-size: 30px;
+    &__text{
+    text-decoration: none;
+    color: rgb(80, 158, 158);
+    }
+    &__text:hover{
+      color: rgb(134, 255, 255);
+    }
+  }
+  .contents{
+    .h2{
+    margin-top: 70px;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'SmartFont';
+    }
+    &__top-content{
+      margin-top: 45px;
+      text-align: center;
+      font-size: 27px;
+      font-family: 'SmartFont';
+      margin-bottom: 20px;
+    }
+    &__main-content{
+      width: 300px;
+      border: solid 1px rgb(184, 184, 184);
+      border-radius: 20px;
+      display: inline-flex;
+      margin: 10px 20px;
+      max-height: 440px;
+      .card{
+        margin: 15px 30px;
+        width: calc(100% - 60px);
+        height: calc(100% - 40px);
+        position: relative;
+        .catch-copy{
+          overflow: hidden;
+          font-size: 25px;
+          border-bottom: solid 0.5px rgb(184, 184, 184);
+          margin: 10px 0;
+          font-weight: 600;
+          text-align: left;
+          &__link{
+            text-decoration: none;
+            color: rgb(20, 129, 255);
+          }
+        }
+        .data{
+          border-bottom: solid 0.5px rgb(184, 184, 184);
+          margin-bottom: 10px;
+          list-style-type: disc;
+          font-size: 15px;
+          text-align: left;
+          &--address{
+            display: flex;
+            .data_title{
+            }
+            .data_text{
+              overflow: hidden;
+              width: 190px;
+              
+            }
+          }
+          &--capacity{
+
+          }
+          &--date{
+
+          }
+
+        }
+        .comment{
+          &__heading{
+            font-size: 15px;
+            font-weight: 600;
+            font-family: 'SmartFont';
+            padding: 5px 0;
+            text-align: left;
+          }
+          &__text{
+            padding-bottom: 10px;
+            word-break: break-all;
+            height: 60px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-align: left;
+            margin-left: 10px;
+          }
+        }
+        .image_box{
+          .shop_image{
+            max-width: 100%;
+            max-height: 160px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+    #attend_card{
+      max-height: 500px;
+      position: relative;
+    }
+  }
+}

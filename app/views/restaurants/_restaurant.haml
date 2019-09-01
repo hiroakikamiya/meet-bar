@@ -1,4 +1,4 @@
-.contents__main-content
+.contents__restaurant_box__main-content
   .card
     .catch-copy
       - if user_signed_in?
@@ -6,32 +6,39 @@
           = link_to restaurant.catchcopy, restaurant_messages_path(restaurant), class: "catch-copy__link"
         - else
           = restaurant.catchcopy
-    %ul.data
-      %li.data--price
-        店名：
-        = restaurant.shop_name
-      %li.data--price
-        場所：
-        = restaurant.address
-      %li.data--price
-        金額：
-        = restaurant.price
-      %li.data--capacity
+      - else
+        = restaurant.catchcopy
+    .data
+      -# %li.data--price
+      -#   店名：
+      -#   = restaurant.shop_name
+      .data--address
+        .title
+          場所：
+        .text
+          = restaurant.address
+      -# %li.data--price
+      -#   金額：
+      -#   = restaurant.price
+      .data--capacity
         人数：
         = restaurant.capacity
-      %li.data--date
+      .data--date
         日付：
         = restaurant.reserve_date.strftime("%Y/%m/%d")
-      %li.data--date
-        時間：
-        = restaurant.reserve_time.strftime("%H:%M")
+      -# %li.data--date
+      -#   時間：
+      -#   = restaurant.reserve_time.strftime("%H:%M")
     .comment
-      .heading
+      .comment__heading
         MEETERコメント
-      .comment
+      .comment__text
         = restaurant.comment
-    .image_box
-      = image_tag (restaurant.images[0].image), class: "shop_image"
+    - if restaurant.images[0].image?
+      .image_box
+        = image_tag (restaurant.images[0].image), class: "shop_image"
+    -else 
+      = image_tag "noimage.jpeg", class: 'shop_image'
     - if user_signed_in?
       - if restaurant.host_id == current_user.id || UserRestaurant.exists?(attender_id: current_user.id, restaurant_id: restaurant.id)
         .reserved-menu

@@ -1,0 +1,15 @@
+.menu__talk__line
+.menu__talk__box
+  = link_to "", restaurant_messages_path(restaurant), class: "menu__talk__box__link"
+  .catch_copy
+    = restaurant.catchcopy
+  - new_message = Message.where(restaurant_id: restaurant.id).order('id DESC').limit(1)
+  .new_message
+    - if new_message.blank?
+      まだメッセージはありません
+    - else
+      .new_message--user
+        #{new_message[0].user.name} :
+      .new_message--text
+        = new_message[0].message
+  = link_to "", restaurant_messages_path(restaurant), class: "menu__talk__box__link"

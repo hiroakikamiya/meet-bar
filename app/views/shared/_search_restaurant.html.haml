@@ -1,0 +1,14 @@
+.search-top
+.search-box
+  .search-box__header
+    MEETをさがす
+  .search-box__form
+    = form_with url: restaurants_path, method: :get, local: true do |f|
+      = f.text_field :keyword, value: params[:keyword], placeholder: "キーワードを入力して下さい（例: 名古屋　焼き肉）", class: "restaurant-form"
+      = f.submit '検索する', class: "search-btn"
+  .search-box__result
+    - if @result_restaurants.blank?
+      .search-box__result__noting
+        該当するMEETはありません
+    - else
+      = render partial: 'restaurant', collection: @result_restaurants , as: "restaurant"

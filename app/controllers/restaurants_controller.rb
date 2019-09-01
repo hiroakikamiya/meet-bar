@@ -1,16 +1,45 @@
 class RestaurantsController < ApplicationController
   respond_to :html
-  before_action :set_restaurant, only: [:update]
-  before_action :move_to_index, except: [:show, :index]
+  before_action :set_restaurant, only: [:update, :show]
+  before_action :move_to_index, except: [:date, :index]
   
   def index
-    @restaurants = Restaurant.order('id DESC').limit(5)
+    @restaurants = Restaurant.order('id DESC').limit(4)
+    @message_restaurants = []
+    if user_signed_in?
+      @message_restaurants += Restaurant.where(host_id: current_user.id)
+      @attend_restaurants = UserRestaurant.where(attender_id: current_user.id)
+      @attend_restaurants.each do |attend_restaurant|
+        @message_restaurants += Restaurant.where(id: attend_restaurant.restaurant_id)
+      end
+    end
+
+    if params[:keyword].blank?
+    else
+      split_keyword = params[:keyword].split(/[[:blank:]]+/)
+      @result_restaurants = []
+      split_keyword.each do |keyword|
+        next if keyword == ""
+        @result_restaurants += Restaurant.where('catchcopy LIKE(?)', "%#{keyword}%")
+        @result_restaurants += Restaurant.where('address LIKE(?)', "%#{keyword}%")
+        @result_restaurants += Restaurant.where('comment LIKE(?)', "%#{keyword}%")
+        @result_restaurants += Restaurant.where('shop_name LIKE(?)', "%#{keyword}%")
+        @result_restaurants += Restaurant.where('price LIKE(?)', "%#{keyword}%")
+        @result_restaurants += Restaurant.where('capacity LIKE(?)', "%#{keyword}%")
+      end
+      @result_restaurants.uniq!
+    end
+
   end
 
   def new
     @restaurant = Restaurant.new
     @restaurant.images.build
     @image = Image.new
+  end
+
+  def search
+    
   end
   
   def create
@@ -22,7 +51,7 @@ class RestaurantsController < ApplicationController
     end
   end
   
-  def show
+  def date
     @restaurants = Restaurant.where(reserve_date: params[:reserve_date])
     @reserve_date = params[:reserve_date]
   end

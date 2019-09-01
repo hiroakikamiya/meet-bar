@@ -1,0 +1,47 @@
+= render partial: '/shared/header'
+.user_edit
+  %h2.user_edit__title
+    ユーザー編集
+  .line
+  .user_edit__data
+    = form_for(current_user) do |f|
+      .form_field
+        .form_field__title
+          = f.label :avatar
+        .form_field__image
+          = image_tag current_user.avatar, class: "avatar"
+        .form_field__avatar_form
+          -# = fa_icon 'picture', class: 'icon'
+          = f.file_field :avatar, autofocus: true, autocomplete: "avatar", class: "hidden"
+      .form_field
+        .form_field__title
+          = f.label :name
+        .form_field__form
+          = f.text_field :name, autofocus: true, autocomplete: "name"
+      .form_field
+        .form_field__title
+          = f.label :email
+        .form_field__form
+          = f.email_field :email, autofocus: true, autocomplete: "email"
+      .form_field
+        .form_field__title
+          = f.label :comment
+        .form_field__form
+          = f.text_area :comment, autofocus: true, autocomplete: "comment"
+      -# .form_field
+      -#   .form_field__title
+      -#     = f.label :password
+      -#   .form_field__form
+      -#     = f.password_field :password, autocomplete: "new-password"
+      -# .form_field
+      -#   .form_field__title
+      -#     = f.label :password_confirmation
+      -#   .form_field__form
+      -#     = f.password_field :password_confirmation, autocomplete: "new-password"
+      -# .form_field
+      -#   .form_field__title
+      -#     = f.label :current_password
+      -#   .form_field__form
+      -#     = f.password_field :current_password, autocomplete: "current-password"
+      .actions
+        = f.submit "更新" ,class: "edit-btn"

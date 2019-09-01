@@ -6,6 +6,8 @@ ja:
       restaurant: MEET
     attributes:
       user:
+        avatar: アイコン
+        comment: コメント
         name: 氏名
         email: メールアドレス
         password: パスワード

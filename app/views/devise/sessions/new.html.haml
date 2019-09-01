@@ -1,0 +1,22 @@
+.contents.row
+  %h2.title meet-bar
+  .user-sign-box
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .newuser-box
+        .field
+          = f.label :name, "氏名", class:"form-text"
+          %br/
+          = f.text_field :name, placeholder: "氏名", autofocus: true
+        .field
+          = f.label :email, "メールアドレス", class:"form-text"
+          %br/
+          = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email"
+        .field
+          = f.label :password, "パスワード", class:"form-text"
+          - if @validatable
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "new-password", placeholder: " パスワード"
+        .actions
+          = f.submit "Log in", class:"create-btn"

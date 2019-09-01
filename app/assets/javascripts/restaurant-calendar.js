@@ -1,5 +1,6 @@
 $(function(){
   $('#calendar').fullCalendar({
+      contentHeight: 'auto',
       selectable: true,
       selectHelper: true,
       select: function(data) {
