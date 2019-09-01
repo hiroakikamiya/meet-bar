@@ -80,6 +80,6 @@
     .form-box
       = form_for [@restaurant, @message] do |f|
         .form-box__message
-          = f.text_area :message, class: 'form-box__message__area', placeholder: 'メッセージを入力してください'
+          = f.text_area :message, class: 'form-box__message__area', placeholder: 'メッセージを入力してください', maxlength: "250"
         .form-box__submit
           = f.submit '送信', class: 'form-box__submit__btn'
