@@ -2,5 +2,5 @@ class Message < ApplicationRecord
   belongs_to :restaurant
   belongs_to :user
 
-  validates :message, presence: true
+  validates :message, length: { maximum: 250 }
 end
