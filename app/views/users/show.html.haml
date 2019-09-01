@@ -10,7 +10,7 @@
         .user_info__basic__name
           = @user.name
         .user_info__basic__comment
-          - if @user.comment.empty?
+          - if @user.comment.blank?
             コメントが入力されていません
           - else
             = @user.comment
