@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :restaurants, through: :user_restaurants
   has_one_attached :avatar
 
-    
+  mount_uploader :image, ImageUploader
   validates :name, length: { in: 1..20}
 end
