@@ -3,7 +3,6 @@
   .title
     アカウント情報
   .line
-  - if @user.id == current_user.id
     .user_info
       .user_info__avatar
         = image_tag @user.avatar, class: "user_info__avatar__image"

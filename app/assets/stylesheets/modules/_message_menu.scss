@@ -1,6 +1,6 @@
 .menu__talk{
   width: 100%;
-  height:  630px;
+  height:  770px;
   overflow: scroll;
   border-bottom: solid 1px rgb(146, 146, 146);
   &__line{
@@ -8,32 +8,36 @@
   }
   &__box{
     margin: 10px;
-    height: 70px;
+    height: 90px;
     width: calc(100% - 20px);
     position: relative;
     .catch_copy{
       overflow: hidden;
-      font-size: 20px;
+      font-size: 25px;
       font-family: 'SmartFont';
     }
     .new_message{
       margin-left: 5px;
       margin-top: 10px;
-      display: flex;
       color: rgb(110, 110, 110);
       &--user{
         margin-right: 10px;
-        font-size: 18px;
-
+        font-size: 20px;
+        overflow: hidden;
+        height: 30px;
       }
       &--text{
-        font-size: 18px;
+        height: 27px;
+        font-size: 17px;
+        width: 240px;
+        margin-left: 30px;
+        overflow: hidden;
       }
     }
     &__link{
       position: absolute;
       width: calc(100% + 20px);
-      height: 90px;
+      height: 110px;
       top: -10px;
       left: -10px;
     }

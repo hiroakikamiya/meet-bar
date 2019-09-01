@@ -9,7 +9,7 @@
       まだメッセージはありません
     - else
       .new_message--user
-        #{new_message[0].user.name} :
+        #{new_message[0].user.name}
       .new_message--text
         = new_message[0].message
   = link_to "", restaurant_messages_path(restaurant), class: "menu__talk__box__link"

@@ -61,6 +61,7 @@
       position: relative;
       width: calc(100% - 60px);
     .catch-copy{
+        height: 40px;
         overflow: hidden;
         font-size: 25px;
         border-bottom: solid 0.5px rgb(184, 184, 184);
@@ -79,12 +80,13 @@
         font-size: 15px;
         text-align: left;
       &--address{
-        overflow: hidden;
         display: flex;
         .title{
         }
         .text{
           width: 125px;
+          overflow: hidden;
+          height: 25px;
         }
       }
       

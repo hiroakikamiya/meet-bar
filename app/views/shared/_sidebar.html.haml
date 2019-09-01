@@ -8,7 +8,7 @@
           -else
             = image_tag "default.jpg", class: 'avatar'
         .menu__user--user_name
-          = link_to current_user.name, user_path(current_user.id), class: "show_link"
+          = link_to current_user.name, user_path(current_user), class: "show_link"
       .menu__form_link
         = link_to "MEETしよう！", new_restaurant_path, class: 'menu__form_link__btn'
       .menu__talk
