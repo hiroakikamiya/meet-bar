@@ -38,7 +38,7 @@
       .image_box
         = image_tag restaurant.image, class: "shop_image"
     -else 
-      = image_tag "noimage.jpeg", class: 'shop_image'
+      = image_tag "noimage.jpg", class: 'shop_image'
     - if user_signed_in?
       - if restaurant.host_id == current_user.id || UserRestaurant.exists?(attender_id: current_user.id, restaurant_id: restaurant.id)
         .reserved-menu
