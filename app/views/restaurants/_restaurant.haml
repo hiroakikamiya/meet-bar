@@ -1,13 +1,8 @@
 .contents__restaurant_box__main-content
+  = link_to "", restaurant_path(restaurant), class: "restaurant_link"
   .card
     .catch-copy
-      - if user_signed_in?
-        - if restaurant.host_id == current_user.id || UserRestaurant.exists?(attender_id: current_user.id, restaurant_id: restaurant.id)
-          = link_to restaurant.catchcopy, restaurant_messages_path(restaurant), class: "catch-copy__link"
-        - else
-          = restaurant.catchcopy
-      - else
-        = restaurant.catchcopy
+      = restaurant.catchcopy
     .data
       -# %li.data--price
       -#   店名：
