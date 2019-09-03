@@ -16,8 +16,10 @@
         .upper-message__avatar
           - if message.user.avatar.attached?
             = image_tag message.user.avatar, class: 'upper-message__avatar__image'
+            = link_to "", user_path(message.user), class: 'upper-message__avatar__link'
           - else 
             = image_tag "default.jpg", class: 'upper-message__avatar__image'
+            = link_to "", user_path(message.user), class: 'upper-message__avatar__link'
         - if message.message.present?
           .upper-message__content-box
             %p.upper-message__content-box__text
