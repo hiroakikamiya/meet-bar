@@ -1,0 +1,82 @@
+= render partial: '/shared/header'
+.contents
+  .contents__top
+  .middle
+    .middle__edit
+      = link_to "MEETを編集する", 
+  .contents__main
+    .show_box
+      .title
+        MEET詳細
+    .line
+    .restaurant_box
+      .data.catch_copy
+        .data__title_box
+          .title
+            キャッチコピー：
+        .data__text_box
+          .text
+            = @restaurant.catchcopy
+      .data.shop_name
+        .data__title_box
+          .title
+            店名：
+        .data__text_box
+          .text
+            = @restaurant.shop_name
+      .data.address
+        .data__title_box
+          .title
+            場所：
+        .data__text_box
+          .text
+            = @restaurant.address
+      .data.price
+        .data__title_box
+          .title
+            金額：
+        .data__text_box
+          .text
+            = @restaurant.price
+      .data.capacity
+        .data__title_box
+          .title
+            人数：
+        .data__text_box
+          .text
+            = @restaurant.capacity
+      .data.reserve_date
+        .data__title_box
+          .title
+            日付：
+        .data__text_box
+          .text
+            = @restaurant.reserve_date.strftime("%Y/%m/%d")
+      .data.reserve_time
+        .data__title_box
+          .title
+            時間：
+        .data__text_box
+          .text
+            = @restaurant.reserve_date.strftime("%H:%M")
+      .data.comment
+        .data__title_box
+          .title
+            コメント：
+        .data__text_box
+          .text
+            - if @restaurant.comment.blank?
+              まだコメントが入力されていません。
+            - else
+              = @restaurant.comment
+      .data.image
+        .data__title_box
+          .title
+            MEET画像：
+        .data__text_box
+          .image_box
+            - if @restaurant.image.attached?
+              = image_tag @restaurant.image, class: "image_box__image"
+            -else 
+              = image_tag "noimage.jpg", class: 'image_box__image'
+  .contents__bottom
