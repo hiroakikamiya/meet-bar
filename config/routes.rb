@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   root 'restaurants#index'
 
   resources :restaurants, only: [:index, :new, :create, :update] do
-    resources :images
     resources :messages, only: [:index, :create]
     collection do
       get 'search'

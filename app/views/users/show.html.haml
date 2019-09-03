@@ -57,7 +57,10 @@
             .comment__text
               = restaurant.comment
           .image_box
-            = image_tag (restaurant.images[0].image), class: "shop_image"
+            - if restaurant.image.attached?
+              = image_tag restaurant.image, class: "shop_image"
+            - else
+              = image_tag "noimage.jpeg", class: 'shop_image'
     .line
     .contents__top-content.attend-content
       .contents__top-content__text
@@ -87,7 +90,10 @@
               .comment__text
                 = restaurant.comment
             .image_box
-              = image_tag (restaurant.images[0].image), class: "shop_image"
+              - if restaurant.image.attached?
+                = image_tag restaurant.image, class: "shop_image"
+              - else
+                = image_tag "noimage.jpeg", class: 'shop_image'
             - if @user.id == current_user.id
               .cancel
                 = link_to "参加を取り消す", user_path(restaurant.id), method: :delete, class: 'cancel__btn'

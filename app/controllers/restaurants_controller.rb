@@ -34,8 +34,6 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
-    @restaurant.images.build
-    @image = Image.new
   end
 
   def search
@@ -66,7 +64,7 @@ class RestaurantsController < ApplicationController
 
   private
   def restaurant_params
-    params.require(:restaurant).permit(:catchcopy, :shop_name, :address, :price, :capacity, :reserve_date, :reserve_time, :comment, images_attributes: [:image, :restaurant_id]).merge(host_id: current_user.id)
+    params.require(:restaurant).permit(:catchcopy, :shop_name, :address, :price, :capacity, :reserve_date, :reserve_time, :comment, :image).merge(host_id: current_user.id)
   end
 
   def user_restaurent_params

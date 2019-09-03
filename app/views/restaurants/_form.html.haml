@@ -86,13 +86,10 @@
         .article__top
           = f.label :comment, "コメント", class: 'left-label'
       = f.text_area :comment, class: 'right-form', placeholder: 'コメントを記入しましょう'
-    = f.fields_for :images do |b|
-      .box
-        .article
-          .article__top
-            = b.label :image, "画像URL", class: 'left-label'
-            .right-label
-              必須
-        = b.text_field :image, class: 'right-form ', placeholder: 'ImageURL'
+    .box
+      .article
+        .article__top
+          = f.label :image, "MEET画像", class: 'left-label'
+      = f.file_field :image, class: 'right-form '
     .action
       = f.submit "MEET投稿", class: 'create-btn'

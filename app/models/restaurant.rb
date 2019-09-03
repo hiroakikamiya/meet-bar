@@ -2,8 +2,8 @@ class Restaurant < ApplicationRecord
   has_many :user_restaurants
   has_many :attender, class_name: "User", through: :user_restaurants
   belongs_to :host, class_name: "User", foreign_key: :seller_id, optional: true
-  has_many :images
-  accepts_nested_attributes_for :images
+  has_one_attached :image
+
   has_many :messages
 
   validates :address, presence: true

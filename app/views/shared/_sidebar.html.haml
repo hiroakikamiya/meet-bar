@@ -5,7 +5,7 @@
         .menu__user--avatar
           - if current_user.avatar.attached?
             = image_tag current_user.avatar, class: 'avatar'
-          -else
+          - else
             = image_tag "default.jpg", class: 'avatar'
         .menu__user--user_name
           = link_to current_user.name, user_path(current_user), class: "show_link"

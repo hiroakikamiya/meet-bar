@@ -34,9 +34,9 @@
         MEETERコメント
       .comment__text
         = restaurant.comment
-    - if restaurant.images[0].image?
+    - if restaurant.image.attached?
       .image_box
-        = image_tag (restaurant.images[0].image), class: "shop_image"
+        = image_tag restaurant.image, class: "shop_image"
     -else 
       = image_tag "noimage.jpeg", class: 'shop_image'
     - if user_signed_in?

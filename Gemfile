@@ -81,7 +81,6 @@ gem 'fog-aws'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem "aws-sdk-s3", require: false
 gem 'font-awesome-rails'
-gem 'rmagick'
 
 group :production do
   gem 'unicorn', '5.4.1'
