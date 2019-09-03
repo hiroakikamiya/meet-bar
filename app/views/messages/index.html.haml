@@ -53,26 +53,30 @@
         主催者
       .host__data
         .host__data--avatar
-          - if @host[0].avatar.attached?
-            = image_tag @host[0].avatar, class: "host__data--avatar__image"
+          - if @host.avatar.attached?
+            = image_tag @host.avatar, class: "host__data--avatar__image"
+            = link_to "", user_path(@host), class: "host__data--avatar__link"
           - else 
             = image_tag "default.jpg", class: 'host__data--avatar__image'
+            = link_to "", user_path(@host), class: "host__data--avatar__link"
         .host__data--name
-          = @host[0].name
+          = @host.name
     .attender
       .attender__title
         参加者
       - if @restaurantuser.present?
       - @restaurantuser.each do |r_u|
-        - attender = User.where(id: r_u.attender_id)
+        - attender = User.find(r_u.attender_id)
           .attender__data
             .attender__data--avatar
-              - if attender[0].avatar.attached?
-                = image_tag attender[0].avatar, class: "attender__data--avatar__image"
+              - if attender.avatar.attached?
+                = image_tag attender.avatar, class: "attender__data--avatar__image"
+                = link_to "", user_path(attender), class: "attender__data--avatar__link"
               - else
                 = image_tag "default.jpg", class: 'attender__data--avatar__image'
+                = link_to "", user_path(attender), class: "attender__data--avatar__link"
             .attender__data--name
-              = attender[0].name
+              = attender.name
 .right-contents
   - if flash[:notice]
     %p.alart-message
