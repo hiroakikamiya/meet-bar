@@ -1,0 +1,61 @@
+.contents{
+  &__top{
+    height: 65px;
+  }
+  &__main{
+    margin: 0 170px;
+    .show_box{
+      text-align: center;
+      .title{
+        margin-top: 80px;
+        text-align: center;
+        font-size: 40px;
+        font-family: 'SmartFont';
+      }
+    }
+    .line{
+      border-top: solid 1px rgb(201, 201, 201);
+      margin: 20px 30px;
+    }
+    .restaurant_box{
+      margin: 0 50px;
+      margin-bottom: 100px;
+      .data{
+          display: flex;
+          margin-top: 3px;
+        &__title_box{
+          width: 200px;
+          min-height: 50px;
+          font-size: 20px;
+          font-family: 'SmartFont';
+          background-color: rgb(214, 214, 214);
+          position: relative;
+          .title{
+            position: absolute;
+            top: 5px;
+            left: 5px;
+          }
+        }
+        &__text_box{
+          width: calc(100% - 220px);
+          margin-left: 20px;
+          font-size: 20px;
+          border-bottom: 1px solid rgb(201, 201, 201);
+          .text{
+            width: 100%;
+          }
+          .image_box{
+            width: 100%;
+            &__image{
+              width: 100%;
+              object-fit: contain
+            }
+          }
+        }
+      }
+    }
+  }
+  &__bottom{
+    height: 150px;
+  }
+}
