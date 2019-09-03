@@ -35,7 +35,7 @@ class MessagesController < ApplicationController
   end
 
   def set_host
-    @host = User.where(id: @restaurant.host_id)
+    @host = User.find(@restaurant.host_id)
   end
 
   def set_attender
