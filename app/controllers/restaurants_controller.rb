@@ -39,6 +39,10 @@ class RestaurantsController < ApplicationController
   def search
     
   end
+
+  def show
+    @restaurant = Restaurant.find(params[:id])
+  end
   
   def create
     @restaurant = Restaurant.new(restaurant_params)
@@ -57,9 +61,16 @@ class RestaurantsController < ApplicationController
   def update
     @userrestaurants = UserRestaurant.where(restaurant_id: @restaurant.id).count
     if @restaurant.capacity > @userrestaurants
-      @restaurant.update(user_restaurent_params)
-      redirect_to root_path(@restaurant)
+      if  @restaurant.update(user_restaurent_params)
+        redirect_to root_path(@restaurant)
+      else
+        redirect_to root_path
+      end
     end
+  end
+
+  def meet_update
+    
   end
 
   private
