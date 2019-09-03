@@ -5,7 +5,10 @@
   .line
     .user_info
       .user_info__avatar
-        = image_tag @user.avatar, class: "user_info__avatar__image"
+        - if @user.avatar.attached?
+          = image_tag @user.avatar, class: "user_info__avatar__image"
+        - else
+          = image_tag "default.jpg", class: "user_info__avatar__image"
       .user_info__basic
         .user_info__basic__name
           = @user.name
