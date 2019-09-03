@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   root 'restaurants#index'
 
-  resources :restaurants, only: [:index, :new, :create, :update] do
+  resources :restaurants, only: [:index, :new, :create, :update, :show, :edit] do
+    collection do
+      patch '/meet_update/:id', to: 'restaurant#meet_update'
+      put '/meet_update/:id', to: 'restaurant#meet_update'
+    end
     resources :messages, only: [:index, :create]
     collection do
       get 'search'
