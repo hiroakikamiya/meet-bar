@@ -38,11 +38,13 @@
           height: 30px;
         }
         .restaurant_link{
+          border-radius: 20px;
           position: absolute;
           width: 250px;
           height: 440px;
           top: 0;
           left: 0;
+          z-index: 10;
         }
       }
       &__main-content:hover{
