@@ -1,7 +1,7 @@
 .sidebar
   .menu
-    -if user_signed_in?
-      .menu__user
+    .menu__user
+      - if user_signed_in?
         .menu__user--avatar
           - if current_user.avatar.attached?
             = image_tag current_user.avatar, class: 'avatar'
@@ -9,8 +9,12 @@
             = image_tag "default.jpg", class: 'avatar'
         .menu__user--user_name
           = link_to current_user.name, user_path(current_user), class: "show_link"
-      .menu__form_link
+      - else
+        .menu__user--not
+          = link_to "ログインしよう", new_user_session_path, class: 'menu__user--not__text'
+    .menu__form_link
+      - if user_signed_in?
         = link_to "MEETしよう！", new_restaurant_path, class: 'menu__form_link__btn'
-      .menu__talk
-        = render partial: '/shared/message_menu', collection: @message_restaurants , as: "restaurant"
+    .menu__talk
+      = render partial: '/shared/message_menu', collection: @message_restaurants , as: "restaurant"
     -# = render partial: '/shared/calendar'
