@@ -9,7 +9,10 @@
         .form_field__title
           = f.label :avatar
         .form_field__image
-          = image_tag current_user.avatar, class: "avatar"
+          - if current_user.avatar.attached?
+            = image_tag current_user.avatar, class: 'avatar'
+          - else
+            = image_tag "default.jpg", class: 'avatar'
         .form_field__avatar_form
           -# = fa_icon 'picture', class: 'icon'
           = f.file_field :avatar, autofocus: true, autocomplete: "avatar", class: "hidden"
