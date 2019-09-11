@@ -1,10 +1,16 @@
-%h2 Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+.contents.row
+  %h2.title meet-bar
+  .user-sign-box
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      .newuser-box
+        .field
+          = f.label :email
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email"
+          - @user.errors.full_messages_for(:email).each do |message|
+            .error-message
+              = message
+        .actions
+          = f.submit "パスワード変更用メールを送信します", class:"create-btn"
+        .login-link
+          = render "devise/shared/links"
