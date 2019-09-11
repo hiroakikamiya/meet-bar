@@ -61,29 +61,25 @@
   }
 }
 .login-link{    
-    position: relative;
-    width: 500px;
-    margin: 20px auto;
-    margin-bottom: 200px;
+  position: relative;
+  width: 500px;
+  margin: 50px auto;
 }
 .login-text{
-  padding-top: 10px;
+  margin-top: 15px;
   font-size: 15px;
-  margin-left: 72px;
-
 }
 .login-btn{
-    position: absolute;
-    height: 35px;
-    width: 353px;
-    border: solid 1px #f57904; 
-    background-color: #f57904;
-    color: white;
-    line-height: 35px;
-    text-decoration: none;
-    text-align: center;
-    margin-left: 72px;
-    border-radius: 5px;
+  position: absolute;
+  height: 35px;
+  width: 353px;
+  border: solid 1px #ffa149; 
+  background-color: #ffa149;
+  color: white;
+  line-height: 35px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
 }
 input[type="text"] {
   width: 350px;
