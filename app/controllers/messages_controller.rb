@@ -45,7 +45,7 @@ class MessagesController < ApplicationController
 
   def move_to_index
     if user_signed_in?
-      if UserRestaurant.exists?(attender_id: current_user.id, restaurant_id: @restaurant.id)||Restaurant.exists?(host_id: current_user.id)
+      if UserRestaurant.exists?(attender_id: current_user.id, restaurant_id: @restaurant.id)||Restaurant.exists?(host_id: current_user.id, id: @restaurant.id)
       else
         redirect_to root_path
       end
