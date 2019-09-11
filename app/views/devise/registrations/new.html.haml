@@ -38,7 +38,5 @@
               = message
         .actions
           = f.submit "アカウントを作る", class:"create-btn"
-  .login-link
-    .login-text
-      既にアカウントをお持ちの方
-    = render "devise/shared/links"
+        .login-link
+          = render "devise/shared/links" 
