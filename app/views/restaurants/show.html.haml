@@ -76,4 +76,23 @@
               = image_tag @restaurant.image, class: "image_box__image"
             -else 
               = image_tag "noimage.jpg", class: 'image_box__image'
+  .contents__btn
+    - if user_signed_in?
+      - if @restaurant.host_id == current_user.id || UserRestaurant.exists?(attender_id: current_user.id, restaurant_id: @restaurant.id)
+        .contents__btn__reserved-menu
+          .contents__btn__reserved-menu__text
+            トークへ
+          = link_to "", restaurant_messages_path(@restaurant), class: "contents__btn__reserved-menu__message-link"
+      - else
+        - if @restaurant.capacity > UserRestaurant.where(restaurant_id: @restaurant.id).count
+          = form_for @restaurant do |f|
+            - if UserRestaurant.exists?(restaurant_id: @restaurant.id)
+              - @restaurant.attender.each do |user|
+                %input{name: "restaurant[attender_ids][]", type: "hidden", value: user.id }
+            %input{name: "restaurant[attender_ids][]", type: "hidden", value: current_user.id }
+            = f.submit "参加する", class: 'edit_restaurant__reserve-btn'
+        - else
+          .contents__btn__noreserve-menu
+            .contents__btn__noreserved-menu__text
+              募集終了
   .contents__bottom
