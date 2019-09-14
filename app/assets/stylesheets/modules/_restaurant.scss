@@ -115,31 +115,31 @@
         max-height: 150px;
         height: auto;
     }
-  }
-}
-.edit_restaurant{
-  z-index: 20;
-  width: calc(100% - 40px);
-  margin: 0 auto;
-  margin-top: 10px;
-  position: absolute;
-  bottom: 0;
-  right: 20px;
-  .reserve-btn{
-    width: 100%;
-    height: 50px;
-    background-color: #ff9e0b;
-    margin: 0 auto;
-    line-height: 50px;
-    color: white;
-    font-size: 20px;
-    font-weight: 600;
-    border: none;
-    border-radius: 5px;
-  }
-  .reserve-btn:hover{
-    color: #1481ff;
-    background-color: #ff8800;
+    .edit_restaurant{
+      z-index: 20;
+      width: calc(100% - 40px);
+      margin: 0 auto;
+      margin-top: 10px;
+      position: absolute;
+      bottom: 0;
+      right: 20px;
+      .reserve-btn{
+        width: 100%;
+        height: 50px;
+        background-color: #ff9e0b;
+        margin: 0 auto;
+        line-height: 50px;
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+      }
+      .reserve-btn:hover{
+        color: #1481ff;
+        background-color: #ff8800;
+      }
+    }
   }
 }
 
